@@ -8,7 +8,7 @@ import {
 } from './constantes.js';
 import { FontWeight } from '@shopify/react-native-skia';
 
-const styles = StyleSheet.create({
+const styles = ({
   containerGeral: {
     width: '100%',
     height: '100%',
@@ -62,28 +62,31 @@ const styles = StyleSheet.create({
   },
 
   containerTituloTelaInicial: {
+    borderColor: COR_BORDA,
+    borderWidth: LARGURA_BORDA_PADRAO,
     position: 'absolute',
     //left: '4.6875%',
-    left: '30.46875%',
+    left: '23.4375%',
     top: '5.55555556%',
-    height: '16.667%',
-    width: '39.0625%',
+    height: '25%',
+    width: '53.12500%',
     backgroundColor: COR_FUNDO_TITULO_TELA_INICIAL,
   },
 
   tituloTelaInicial: {
     color: COR_TEXTO_NAO_SELECIONADO,
-    fontSize: 40,
+    fontSize: 37,
   },
   
   subtituloTelaInicial: {
     color: COR_TEXTO_NAO_SELECIONADO,
-    fontSize: 29
+    fontSize: 29,
   },
 
   textoPadrao: {
     color: COR_TEXTO_NAO_SELECIONADO,
-    fontSize: 17,
+    fontFamily: 'ComicSans',
+    textAlign: 'center',
   },
 
   botaoAjudaTelaInicial: {
@@ -108,6 +111,7 @@ const styles = StyleSheet.create({
     borderStyle: 'solid',
     alignItems: 'center',
     justifyContent: 'center',
+    padding: '0.5%',
   },
 
   botaoIcone: {
@@ -116,8 +120,6 @@ const styles = StyleSheet.create({
     width: '6.25%',
     height: '11.111%',
     backgroundColor: COR_FUNDO_ICONE,
-    borderWidth: LARGURA_BORDA_PADRAO,
-    borderColor: COR_BORDA,
     borderStyle: 'solid',
     alignItems: 'center',
     justifyContent: 'center',
@@ -178,12 +180,17 @@ const styles = StyleSheet.create({
 
   containerTituloSimulacao: {
     position: 'absolute',
-    width: '100%',
+    height: '11.1111111%',
+    backgroundColor: COR_FUNDO_CAIXA_TEXTO, 
     alignItems: 'center',
     //left: '3.125%',
-    left: '0%',
-    top: '4.16666667%',
+    top: '5.55555556%',
+    maxWidth: '71.875%',
+    borderColor: COR_BORDA,
+    borderWidth: LARGURA_BORDA_PADRAO,
+
   },  
+
   textoTituloSimulacao: {
     fontSize: 35,
     color: COR_TEXTO_NAO_SELECIONADO,
@@ -201,19 +208,29 @@ const styles = StyleSheet.create({
     borderColor: COR_BORDA,
     borderStyle: 'solid',
   },
-
   containerAjuda: {
     position: 'absolute',
-    width: '50%',
+    width: '93.75%',
     height: '72.2222222%',
     alignItems: 'center',
-    left: '45.3125%',
+    right: '3.125%',
     bottom: '5.556%',
     backgroundColor: COR_FUNDO_AJUDA, 
-    borderWidth: LARGURA_BORDA_PADRAO,
-    borderColor: COR_BORDA,
-    borderStyle: 'solid',
   },
+
+
+//  containerAjuda: {
+//    position: 'absolute',
+//    width: '93.75%',
+//    height: '72.2222222%',
+//    alignItems: 'center',
+//    right: '3.125%',
+//    bottom: '5.556%',
+//    backgroundColor: COR_FUNDO_AJUDA, 
+//    borderWidth: LARGURA_BORDA_PADRAO,
+//    borderColor: COR_BORDA,
+//    borderStyle: 'solid',
+//  },
 
   opcoes: {
     //1: {width: '7.8125%', top: '69.444%', left: '48.4375%',}, 
@@ -239,13 +256,14 @@ const styles = StyleSheet.create({
     'dentro': {top: '69.444%', right: '29.6875%'},
     'aprox': {top: '83.333%', right: '3.125%'},
     'real': {top: '83.333%', right: '29.6875%'},
+    'lados':{top: '69.444%', right: '3.125%', width: '14.0625%', height: '11.111%'},
   },
 
   linhaHorizontal: {
     position: 'absolute', 
     height: LARGURA_BORDA_PADRAO, 
     right: '9.375%', 
-    width: '35.9375%', 
+    width: '39.0625%', 
     backgroundColor: COR_LINHA_HORIZONTAL,
   },
 
@@ -260,9 +278,9 @@ const styles = StyleSheet.create({
     borderStyle: 'solid',
     borderWidth: LARGURA_BORDA_PADRAO,
     height: '76.1904762%',
-    width: '63.6363636%',
+    width: '78.7878788%',
     top: '14.2857143%',
-    left: '6.06060606%',
+    left: '9.09090909%',
   },
 
   linhaVerticalGraficoPadrao: {
@@ -280,12 +298,83 @@ const styles = StyleSheet.create({
   },
 
   real: {
-    backgroundColor: '#888', 
     width: '100%', 
     height: 2, 
     top: '50%', 
     position: 'absolute',
   },
+
+  // Botão de diminuir o número de lados do polígono regular
+  botaoMenos: {
+    position: 'absolute',
+    height: '11.1111111%',
+    width: '6.25%',
+    top: '52.7777778%',
+    left: '75%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: LARGURA_BORDA_PADRAO,
+    borderColor: COR_BORDA,
+    borderStyle: 'solid',
+  },
+
+  // Botão de aumentar o número de lados do polígono regular
+  botaoMais: {
+    position: 'absolute',
+    height: '11.1111111%',
+    width: '6.25%',
+    top: '38.8885556%',
+    left: '75%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: LARGURA_BORDA_PADRAO,
+    borderColor: COR_BORDA,
+    borderStyle: 'solid',
+  },
+
+  caixaTextoFecho: {
+    position: 'absolute',
+    left: '45.3125%',
+    width: '35.9375%',
+    top: '38.8885556%',
+    height: '25%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: LARGURA_BORDA_PADRAO,
+    borderColor: COR_BORDA,
+    borderStyle: 'solid',
+    padding: "2%",
+    backgroundColor: COR_FUNDO_CAIXA_TEXTO,
+  },
+
+  caixaTextoRegulares: {
+    position: 'absolute',
+    left: '45.3125%',
+    width: '28.125%',
+    top: '38.8885556%',
+    height: '25%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: LARGURA_BORDA_PADRAO,
+    borderColor: COR_BORDA,
+    borderStyle: 'solid',
+    padding: "2%",
+    backgroundColor: COR_FUNDO_CAIXA_TEXTO,
+  },
+  
+  icone: {
+    width: "100%",
+    height: "100%",
+    position: "absolute",
+  },
+
+  // O overflow: "hidden" é para que as bordas dos elementos acompanhem a curva (e não sejam cortadas)
+  bordaArredondada: {
+    borderRadius: 6,
+    overflow: "hidden"
+  },
+
+  
 
 });
 

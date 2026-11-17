@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "testes-layout",
-    "slug": "testes-layout",
+    "name": "okimura-okimura",
+    "slug": "okimura-okimura",
     "version": "1.0.0",
     "orientation": "landscape",
     "icon": "./assets/icon.png",
@@ -13,22 +13,27 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "requireFullScreen": true
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
+      "resizeableActivity": false,
       "edgeToEdgeEnabled": true,
       "package": "com.guilhermeshun.testeslayout"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
+    "plugins": [
+      "expo-status-bar"
+    ],
     "extra": {
       "eas": {
-        "projectId": "6fda752c-2402-480e-a601-9dc783f6bb84"
+        "projectId": "89e6de16-fd8d-4568-a3c5-791d4f66a63e"
       }
     }
   }
