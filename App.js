@@ -73,7 +73,6 @@ export default function App() {
     let novasRazoes = [...razoes];
     let tempIndiceProximaAproximacao = indiceProximaAproximacao;
     for (let i = 0; i < opcao; i++){
-
       // Gera pontos em [0, 1] por padrão. 
       let x = Math.random();
       let y = Math.random();
@@ -83,8 +82,8 @@ export default function App() {
       let args = {x: x - 0.5, y: y - 0.5};
       if (telaAtual === "Fecho Convexo"){ args.fecho = fecho; } 
       if (telaAtual === "Pol. Regulares"){ args.v = vertices; args.apotemaQuadrado = apotemaQuadrado; } 
-      //console.log(telaAtual)
-      //console.log(args.v)
+
+      // temas[telaAtual][0] é a função de verificação específica
       if (temas[telaAtual][0](args)){
         novosDentro += 1;
         // O y-1 é usado para refletir os pontos pela reta horizontal de altura 0.5. 
@@ -97,10 +96,10 @@ export default function App() {
         tempIndiceProximaAproximacao += 1;  
       }        
     }
-    setIndiceProximaAproximacao(tempIndiceProximaAproximacao);
-    setRazoes(novasRazoes);
     setDentro((atual) => atual + novosDentro);
     setTotal((atual) => atual + opcao);
+    setIndiceProximaAproximacao(tempIndiceProximaAproximacao);
+    setRazoes(novasRazoes);
     setBitmap(superficie.current.makeImageSnapshot());
   }
 
@@ -208,8 +207,10 @@ export default function App() {
       )}
 
       {/* Simulação */}
-      {(Object.keys(temas).includes(telaAtual)) && (!ajuda) && (
-        <View style={{flex: 1, alignItems: "center", justifyContent: "center",}}>
+      {(Object.keys(temas).includes(telaAtual)) 
+      && (!ajuda) && (
+        <View style={
+          {flex: 1, alignItems: "center", justifyContent: "center",}}>
 
           {/* Ícones */}
           <Pressable style={[styles.botao2TelaSimulacao, styles.botaoIcone]} onPress={() => {reiniciar();}}>
@@ -255,14 +256,24 @@ export default function App() {
           )}
 
           {(telaAtual !== "Fecho Convexo") &&
-            <View style={[styles.bordaArredondada, styles.display, {width: DIAMETRO, height: DIAMETRO, position: "absolute"}]}>             
-
+            <View style={[
+              styles.bordaArredondada, styles.display, 
+              {width: DIAMETRO, height: DIAMETRO, position: "absolute"}]}>             
               <Canvas style={{ width: DIAMETRO, height: DIAMETRO, alignItems: 'center', justifyContent: 'center', }}>
                 {/* O -2 é usado para as bordas não ficarem cobertas */}
                 {bitmap && <Image image={bitmap} x={1} y={1} width={DIAMETRO-2} height={DIAMETRO-2} />}
               </Canvas>
-              {(telaAtual === "Integral x²") && (<ImageRN source={contorno_integral} style={[StyleSheet.absoluteFill, {width: "100%", height: "100%"}]}></ImageRN>)}
-              {(telaAtual === "Círculo: pi") && (<ImageRN source={contorno_circulo} style={[StyleSheet.absoluteFill, {width: "100%", height: "100%"}]}></ImageRN>)}
+              {(telaAtual === "Integral x²") && (
+                <ImageRN 
+                  source={contorno_integral} 
+                  style={[StyleSheet.absoluteFill, {width: "100%", height: "100%"}]}>
+                </ImageRN>)}
+              {(telaAtual === "Círculo: pi") && (
+                <ImageRN 
+                  source={contorno_circulo} 
+                  style={[StyleSheet.absoluteFill, {width: "100%", height: "100%"}]}>
+                </ImageRN>)}
+              
               {(telaAtual === "Pol. Regulares") && (
                 <Canvas style={[StyleSheet.absoluteFill, {height: '100%', width: '100%', position: "absolute"}]} pointerEvents="none">
                   {vertices.map((v, i) => (
@@ -502,11 +513,13 @@ export default function App() {
          
          */}
 
-      </View>
+        </View>
       )}
 
+      {/* Tela de ajuda */} 
       {(ajuda) && (
-        <View style={{flex: 1, justifyContent: "center", alignItems: "center", height: '100%', width: '100%'}}>
+        <View style={{
+          flex: 1, justifyContent: "center", alignItems: "center", height: '100%', width: '100%'}}>
           <TituloSimulacao>Ajuda: {telaAtual}</TituloSimulacao>
           <Pressable style={[styles.botao1TelaSimulacao, styles.botaoIcone]} onPress={() => setAjuda(false)}>
             <IconeVoltar></IconeVoltar>
@@ -546,7 +559,7 @@ export default function App() {
           </Ajuda>
           */}
 
-      </View>
+        </View>
       )}
 
       </View>

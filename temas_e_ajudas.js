@@ -16,10 +16,12 @@ import { EPSILON_FLOAT } from "./constantes";
 // 0.5 é o raio do círculo
 
 const distancia = (x0, y0, x1, y1) => Math.sqrt((x0 - x1)**2 + (y0 - y1)**2)
-
-const verificarCirculo = (args) => {let x = args["x"];  let y = args["y"]; return distancia(x, y, 0, 0) <= 0.5;}
+const verificarCirculo = (args) => {
+    let x = args["x"];  
+    let y = args["y"]; 
+    return distancia(x, y, 0, 0) <= 0.5;
+}
 const aproximarCirculo = (razao) => 4*razao;
-
 
 function rayCasting(vertices, ponto){
     let num_vertices = vertices.length;

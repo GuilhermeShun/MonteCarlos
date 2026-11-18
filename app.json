@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Monte Carlos",
-    "slug": "Monte Carlos",
+    "slug": "monte-carlos",
     "version": "1.0.0",
     "orientation": "landscape",
     "icon": "./assets/icon.png",
@@ -33,7 +33,7 @@
     ],
     "extra": {
       "eas": {
-        "projectId": "89e6de16-fd8d-4568-a3c5-791d4f66a63e"
+        "projectId": "7bc28e7c-058c-42d6-84a3-604f030a72fb"
       }
     }
   }
